@@ -1,0 +1,8 @@
+%p
+  %strong t('activerecord.attributes.child.parent_id')
+  = @child.parent_id
+%p
+  %strong t('activerecord.attributes.child.name')
+  = @child.name
+
+== #{ link_to t('edit'), edit_child_path(@child) } | #{ link_to t('back'), children_path }

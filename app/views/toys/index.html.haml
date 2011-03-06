@@ -1,0 +1,23 @@
+%h1 
+  =t('toys.index.title')
+
+%table
+  %thead
+    %tr
+      %th 
+        =t('activerecord.attributes.toy.child_id')
+      %th 
+        =t('activerecord.attributes.toy.name')
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for toy in @toys
+      %tr{ :class => cycle(:odd, :even) }
+        %td= toy.child ? toy.child.name : "unknown"
+        %td= toy.name
+        %td= link_to t('show'), toy
+        %td= link_to t('edit'), edit_toy_path(toy)
+        %td= link_to t('destroy'), toy, :confirm => I18n.t('confirm_delete'), :method => :delete
+
+%br
+= link_to t('toy.new'), new_toy_path

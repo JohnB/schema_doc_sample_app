@@ -1,0 +1,19 @@
+- form_for(@toy) do |f|
+  
+  - if @toy.errors.any?
+    #errorExplanation
+      %h2= t('activerecord.errors.messages.toy.invalid_record')
+      %ul
+      - @toy.errors.full_messages.each do |msg|
+        %li= msg
+  .field
+    = f.label :child_id
+    %br
+    = f.select :child_id, Child.all.collect {|c| [c.name, c.id]}
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+
+  .actions
+    = f.submit I18n.t('submit')

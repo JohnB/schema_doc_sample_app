@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  toy_id: 1
+  child_id: 1
+  loaned_at: 2011-03-06 10:32:08
+  expected_back_at: 2011-03-06 10:32:08
+
+two:
+  toy_id: 1
+  child_id: 1
+  loaned_at: 2011-03-06 10:32:08
+  expected_back_at: 2011-03-06 10:32:08

@@ -1,0 +1,23 @@
+%h1 
+  =t('children.index.title')
+
+%table
+  %thead
+    %tr
+      %th 
+        =t('activerecord.attributes.child.parent_id')
+      %th 
+        =t('activerecord.attributes.child.name')
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for child in @children
+      %tr{ :class => cycle(:odd, :even) }
+        %td= link_to child.parent.name, parent_path(child.parent)
+        %td= child.name
+        %td= link_to t('show'), child
+        %td= link_to t('edit'), edit_child_path(child)
+        %td= link_to t('destroy'), child, :confirm => I18n.t('confirm_delete'), :method => :delete
+
+%br
+= link_to t('child.new'), new_child_path

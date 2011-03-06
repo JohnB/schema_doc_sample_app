@@ -1,0 +1,23 @@
+%h1 
+  =t('parents.index.title')
+
+%table
+  %thead
+    %tr
+      %th 
+        =t('activerecord.attributes.parent.name')
+      %th 
+        =t('activerecord.attributes.parent.email')
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for parent in @parents
+      %tr{ :class => cycle(:odd, :even) }
+        %td= parent.name
+        %td= parent.email
+        %td= link_to t('show'), parent
+        %td= link_to t('edit'), edit_parent_path(parent)
+        %td= link_to t('destroy'), parent, :confirm => I18n.t('confirm_delete'), :method => :delete
+
+%br
+= link_to t('parent.new'), new_parent_path

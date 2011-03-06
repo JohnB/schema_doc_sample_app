@@ -1,0 +1,29 @@
+%h1 
+  =t('loans.index.title')
+
+%table
+  %thead
+    %tr
+      %th 
+        =t('activerecord.attributes.loan.toy_id')
+      %th 
+        =t('activerecord.attributes.loan.child_id')
+      %th 
+        =t('activerecord.attributes.loan.loaned_at')
+      %th 
+        =t('activerecord.attributes.loan.expected_back_at')
+      %th{ :colspan => 3 }
+  
+  %tbody
+    - for loan in @loans
+      %tr{ :class => cycle(:odd, :even) }
+        %td= loan.toy_id
+        %td= loan.child_id
+        %td= loan.loaned_at
+        %td= loan.expected_back_at
+        %td= link_to t('show'), loan
+        %td= link_to t('edit'), edit_loan_path(loan)
+        %td= link_to t('destroy'), loan, :confirm => I18n.t('confirm_delete'), :method => :delete
+
+%br
+= link_to t('loan.new'), new_loan_path

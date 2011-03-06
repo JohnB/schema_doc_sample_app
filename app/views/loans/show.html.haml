@@ -1,0 +1,14 @@
+%p
+  %strong t('activerecord.attributes.loan.toy_id')
+  = @loan.toy_id
+%p
+  %strong t('activerecord.attributes.loan.child_id')
+  = @loan.child_id
+%p
+  %strong t('activerecord.attributes.loan.loaned_at')
+  = @loan.loaned_at
+%p
+  %strong t('activerecord.attributes.loan.expected_back_at')
+  = @loan.expected_back_at
+
+== #{ link_to t('edit'), edit_loan_path(@loan) } | #{ link_to t('back'), loans_path }
