@@ -27,15 +27,15 @@ en:
   parents:
     index:
       title: Parents
-  loans:
-    index:
-      title: Loans
-  toys:
-    index:
-      title: Toys
   children:
     index:
       title: Kids
+  toys:
+    index:
+      title: Toys
+  loans:
+    index:
+      title: Loans
   activerecord:
     attributes:
       parent:
@@ -46,7 +46,9 @@ en:
         name: Name
       toy:
         name: Name
-activerecord:
-  attributes:
-    parent:
-      name: wacky
+        child_id: Child
+      loan:
+        toy_id: Toy
+        child_id: From
+        loaned_at: Loan Date
+        expected_back_at: Due Date
